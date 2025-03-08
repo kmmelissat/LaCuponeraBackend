@@ -11,8 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('exchanged_coupons', function (Blueprint $table) {
-            $table->id();
+        Schema::create('exchange_coupons', function (Blueprint $table) {
+            $table->id(); 
+            $table->foreignId('user_id')->constrained()->onDelete('cascade'); 
+            $table->foreignId('coupon_id')->constrained()->onDelete('cascade'); 
+            $table->date('exchange_date');
+            $table->boolean('coupon_status');
             $table->timestamps();
         });
     }

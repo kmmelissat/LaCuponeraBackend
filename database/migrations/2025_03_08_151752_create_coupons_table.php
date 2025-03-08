@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('coupons', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('commerce_id')->constrained()->onDelete('cascade');
+            $table->string('offer_title');
+            $table->integer('regular_price');
+            $table->integer('offer_price');
+            $table->date('start_date');
+            $table->date('finish_date');
+            $table->date('deadline');
+            $table->integer('quantity_limit');
+            $table->text('description');
             $table->timestamps();
         });
     }
