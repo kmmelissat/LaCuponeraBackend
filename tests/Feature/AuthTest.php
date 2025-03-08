@@ -25,7 +25,6 @@ class AuthTest extends TestCase
             'password' => $password,
         ]);
 
-        // Assert the user is authenticated
         $this->assertAuthenticatedAs($user);
         $response->assertRedirect('/home'); // Adjust the redirect path as needed
     }
